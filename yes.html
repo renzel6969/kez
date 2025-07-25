@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️</title>
+    <link rel="stylesheet" href="yes_style.css">
+</head> 
+<body>
+    <div class="heart-container"></div>
+
+    <div class="container two-column">
+        <div class="left-column">
+            <h1 class="header_text">Hurrayyyy!!</h1>
+            <div class="gif_container">
+                <img src="https://media1.tenor.com/m/G6E-T6-Bl6UAAAAC/bear-kiss-bear-kisses.gif" alt="Cute animated illustration">
+            </div>
+            <p class="typing-text" id="typing"></p>
+        </div>
+        <div id="playlist" class="right-column fade-in" style="display:none;">
+            <img class="kirby-gif" src="https://media.tenor.com/idS-Mx-F43QAAAAi/kirby-dancing.gif" alt="Kirby dancing">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0kvPWD3bp5l70oUNvMmVAb?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Floating hearts
+        const heartContainer = document.querySelector('.heart-container');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 10 + 14) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heartContainer.appendChild(heart);
+            setTimeout(() => heart.remove(), 7000);
+        }
+        setInterval(createHeart, 400);
+
+        // Confetti burst
+        function shootConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 90,
+                origin: { y: 0.6 }
+            });
+        }
+        shootConfetti();
+
+        // Typing animation then show playlist
+        const text = "Chat chat is this real 22o ba to 😳";
+        let index = 0;
+        function typeText() {
+            if (index < text.length) {
+                document.getElementById('typing').textContent += text.charAt(index);
+                index++;
+                setTimeout(typeText, 80);
+            } else {
+                document.getElementById('playlist').style.display = 'flex';
+            }
+        }
+        typeText();
+    </script>
+</body> 
+</html>

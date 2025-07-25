@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️</title>
+    <link rel="stylesheet" href="styles.css">
+</head> 
+<body>
+    <div class="heart-container"></div>
+
+    <div class="container">
+        <div>
+            <h1 class="header_text">Kezlle Liclican, can I start courting you?</h1>
+            <h1 class="header_text">plzplzplzplz</h1>
+        </div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+        </div>
+        <div class="buttons">
+            <button class="btn big-btn" id="yesButton" onclick="nextPage()">Yes</button>
+            <button class="btn big-btn" id="noButton" onclick="shrinkButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage() {
+            window.location.href = "yes.html";
+        }
+
+        // No button shrinking behavior
+        function shrinkButton() {
+            const noBtn = document.getElementById('noButton');
+            let currentScale = parseFloat(noBtn.getAttribute('data-scale')) || 1;
+            currentScale *= 0.8; // shrink by 20%
+            noBtn.style.transform = `scale(${currentScale})`;
+            noBtn.setAttribute('data-scale', currentScale);
+        }
+
+        // Floating hearts
+        const heartContainer = document.querySelector('.heart-container');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 10 + 14) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+
+            heartContainer.appendChild(heart);
+            setTimeout(() => heart.remove(), 7000);
+        }
+        setInterval(createHeart, 400);
+    </script> 
+</body> 
+</html>

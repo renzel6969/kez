@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #fff3b0, #ffb6c1);
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.heart-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 24px;
+    animation: floatUp 6s linear infinite;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+.container.two-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header_text {
+    font-size: 48px;
+    font-weight: bold;
+    color: #e62e5c;
+    text-shadow: 1px 1px 2px #fff;
+    margin-bottom: 20px;
+}
+
+.typing-text {
+    font-size: 24px;
+    color: #e62e5c;
+    margin: 20px 0;
+}
+
+.gif_container img {
+    width: 250px;
+    border-radius: 20px;
+}
+
+.kirby-gif {
+    width: 250px;
+    height: auto;
+    animation: bounce 1s infinite alternate;
+    margin-bottom: 15px;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
+}
+
+.playlist iframe {
+    max-width: 300px;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.fade-in[style*="display: flex"] {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .container.two-column {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .header_text {
+        font-size: 32px;
+    }
+    .gif_container img, .kirby-gif {
+        width: 180px;
+    }
+}

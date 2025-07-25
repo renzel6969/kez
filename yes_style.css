@@ -78,7 +78,7 @@ body {
     to { transform: translateY(-8px); }
 }
 
-/* Playlist button below Kirby */
+/* Playlist button (Spotify) */
 .playlist-button {
     display: inline-block;
     width: 50px;

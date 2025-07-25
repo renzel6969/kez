@@ -11,6 +11,7 @@ body {
     text-align: center;
 }
 
+/* Hearts animation */
 .heart-container {
     position: fixed;
     top: 0;
@@ -19,7 +20,6 @@ body {
     height: 100%;
     pointer-events: none;
 }
-
 .heart {
     position: absolute;
     color: #ff4d6d;
@@ -28,13 +28,13 @@ body {
     pointer-events: none;
     opacity: 0.8;
 }
-
 @keyframes floatUp {
     0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
     50% { opacity: 1; }
     100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
+/* Layout */
 .container.two-column {
     display: flex;
     justify-content: center;
@@ -42,13 +42,13 @@ body {
     gap: 40px;
     flex-wrap: wrap;
 }
-
 .left-column, .right-column {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Text */
 .header_text {
     font-size: 48px;
     font-weight: bold;
@@ -56,43 +56,52 @@ body {
     text-shadow: 1px 1px 2px #fff;
     margin-bottom: 20px;
 }
-
 .typing-text {
     font-size: 24px;
     color: #e62e5c;
     margin: 20px 0;
 }
 
+/* GIFs */
 .gif_container img {
     width: 250px;
     border-radius: 20px;
 }
-
 .kirby-gif {
     width: 250px;
     height: auto;
     animation: bounce 1s infinite alternate;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
-
 @keyframes bounce {
     from { transform: translateY(0); }
     to { transform: translateY(-8px); }
 }
 
-.playlist iframe {
-    max-width: 300px;
+/* Playlist button below Kirby */
+.playlist-button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #ff8dcf;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.playlist-button:hover {
+    background-color: #ff68bb;
 }
 
+/* Fade-in for playlist */
 .fade-in {
     opacity: 0;
     transition: opacity 1s ease-in;
 }
-
 .fade-in[style*="display: flex"] {
     opacity: 1;
 }
 
+/* Mobile adjustments */
 @media only screen and (max-width: 600px) {
     .container.two-column {
         flex-direction: column;
@@ -102,6 +111,10 @@ body {
         font-size: 32px;
     }
     .gif_container img, .kirby-gif {
-        width: 180px;
+        width: 200px;
+    }
+    .playlist-button {
+        width: 45px;
+        height: 45px;
     }
 }
